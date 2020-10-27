@@ -32,7 +32,7 @@ const SingleBook = ({
     console.log(book, id)
   
 
-  }, [dispatch, match, updateBook])
+  }, [dispatch, match, updateBook, book])
 
   const getCategory = (id) => {
     return categories.filter((category) =>  { 
