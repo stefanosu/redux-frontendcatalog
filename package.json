@@ -1,4 +1,4 @@
-{ "homepage": "https://github.com/stefanosu/redux-frontendcatalog", 
+{
   "name": "redux-frontendcatalog",
   "version": "0.1.0",
   "private": true,
