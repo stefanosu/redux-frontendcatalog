@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/stefanosu/redux-frontendcatalog/static/css/main.1dfeb340.chunk.css",
+    "main.js": "/stefanosu/redux-frontendcatalog/static/js/main.ddcb8420.chunk.js",
+    "main.js.map": "/stefanosu/redux-frontendcatalog/static/js/main.ddcb8420.chunk.js.map",
+    "runtime-main.js": "/stefanosu/redux-frontendcatalog/static/js/runtime-main.83197b26.js",
+    "runtime-main.js.map": "/stefanosu/redux-frontendcatalog/static/js/runtime-main.83197b26.js.map",
+    "static/js/2.7420ae9d.chunk.js": "/stefanosu/redux-frontendcatalog/static/js/2.7420ae9d.chunk.js",
+    "static/js/2.7420ae9d.chunk.js.map": "/stefanosu/redux-frontendcatalog/static/js/2.7420ae9d.chunk.js.map",
+    "index.html": "/stefanosu/redux-frontendcatalog/index.html",
+    "precache-manifest.ca0170fcfcd2da38f217c0f9ab30b96c.js": "/stefanosu/redux-frontendcatalog/precache-manifest.ca0170fcfcd2da38f217c0f9ab30b96c.js",
+    "service-worker.js": "/stefanosu/redux-frontendcatalog/service-worker.js",
+    "static/css/main.1dfeb340.chunk.css.map": "/stefanosu/redux-frontendcatalog/static/css/main.1dfeb340.chunk.css.map",
+    "static/js/2.7420ae9d.chunk.js.LICENSE.txt": "/stefanosu/redux-frontendcatalog/static/js/2.7420ae9d.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.83197b26.js",
+    "static/js/2.7420ae9d.chunk.js",
+    "static/css/main.1dfeb340.chunk.css",
+    "static/js/main.ddcb8420.chunk.js"
+  ]
+}
