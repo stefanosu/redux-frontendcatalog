@@ -15,36 +15,13 @@ class Book extends React.Component {
     const author = book.author;
     const category = book.categoryName;
 
-    // this.rateBookHandler = (e, id) => {
-    //   let target = e.target.value 
-    //   if(target === book.id) {
-    //     console.log('pressed', target);
-    //       this.setState(
-    //         prevState => ({
-    //           rating: +1
-    //         })
-    //       )
-    //   } else if (this.state.hasBeenSelected) {
-    //       this.setState(
-    //         prevState => ({
-    //           hasBeenSelected: !false
-    //         })
-    //       )
-    //     }
-    //   }
-
       this.incrementBookRating = () => { 
-        // let target = e.target.value 
-        // if(target === id) {
         this.setState(prevState => ({
           rating: prevState.rating + 1 
         }))
       }
-    // }
       
       this.decrementBookRating = () => {
-        // let target = e.target.value 
-        // if(target === id) {
         this.setState(prevState => {
           if(prevState.rating > 0) {
             return {
@@ -85,12 +62,10 @@ class Book extends React.Component {
             </Link>
           )}
 
-          {onDelete && <button onClick={onDelete}>Delete</button>} 
-          <button onChange={this.handleChange} onClick={this.incrementBookRating}>+</button>
-            <span value={this.state.rating} onChange={this.handleChange}> </span>
-          <input className="rate-btn" value={this.state.rating} onChange={this.handleChange}></input>
-          <button onChange={this.handleChange} onClick={this.decrementBookRating}>-</button>
-          <span value={this.state.rating} onChange={this.handleChange}> </span>
+          {onDelete && <button className='delete-btn' onClick={onDelete}>Delete</button>} 
+          <button className='increase-btn' onChange={this.handleChange} onClick={this.incrementBookRating}>+</button>
+            <p className='rating-score'>{this.state.rating}</p>
+          <button className='decrease-btn' onChange={this.handleChange} onClick={this.decrementBookRating}>-</button>
         </article>
       </div>
     ) 

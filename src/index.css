@@ -10,6 +10,20 @@ p {
   font-size: 1.1rem;
 }
 
+.rating-score {
+  display: inline;
+}
+
+.increase-btn {
+  color: black;
+  background-color: green;
+}
+
+.decrease-btn {
+  color: black;
+  background-color: #ea3546;
+}
+
 nav {
   display: flex;
   padding: 2rem 0;
