@@ -45,14 +45,19 @@ class Book extends React.Component {
       this.decrementBookRating = () => {
         // let target = e.target.value 
         // if(target === id) {
-        this.setState(prevState => ({
-          rating: prevState.rating - 1 ? prevState.rating > 0 :  null
-        }))
-      // } 
+        this.setState(prevState => {
+          if(prevState.rating > 0) {
+            return {
+              rating: prevState.rating - 1 
+            }
+          } else {
+            return null 
+          }
+        })
     }
 
-    this.handleChange = (e) => {
-      this.setState({rating: e.target.value});
+    this.handleChange = (event) => {
+      this.setState({rating: event.target.value});
     }
 
     this.toggleClick = () => {
@@ -82,11 +87,10 @@ class Book extends React.Component {
 
           {onDelete && <button onClick={onDelete}>Delete</button>} 
           <button onChange={this.handleChange} onClick={this.incrementBookRating}>+</button>
-            <span>{this.state.rating}</span>
+            <span value={this.state.rating} onChange={this.handleChange}> </span>
+          <input className="rate-btn" value={this.state.rating} onChange={this.handleChange}></input>
           <button onChange={this.handleChange} onClick={this.decrementBookRating}>-</button>
-            <span>{this.state.rating}</span>
-            {/* <button onClick={this.toggleClick}>
-            </button> */}
+          <span value={this.state.rating} onChange={this.handleChange}> </span>
         </article>
       </div>
     ) 
