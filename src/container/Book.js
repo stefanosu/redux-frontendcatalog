@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-class Book extends React.Component () {
+class Book extends React.Component {
   
   initialState = {
-    hasBeenSelected: false, 
+    display: true, 
     rating: 0 
   }
   state = this.initialState
@@ -15,9 +15,10 @@ class Book extends React.Component () {
     const author = book.author;
     const category = book.categoryName;
 
-    // const rateBookHandler = (e) => {
-    //   let event = e.target.value 
-    //   if(event === book.id) {
+    // this.rateBookHandler = (e, id) => {
+    //   let target = e.target.value 
+    //   if(target === book.id) {
+    //     console.log('pressed', target);
     //       this.setState(
     //         prevState => ({
     //           rating: +1
@@ -31,6 +32,34 @@ class Book extends React.Component () {
     //       )
     //     }
     //   }
+
+      this.incrementBookRating = () => { 
+        // let target = e.target.value 
+        // if(target === id) {
+        this.setState(prevState => ({
+          rating: prevState.rating + 1 
+        }))
+      }
+    // }
+      
+      this.decrementBookRating = () => {
+        // let target = e.target.value 
+        // if(target === id) {
+        this.setState(prevState => ({
+          rating: prevState.rating - 1 ? prevState.rating > 0 :  null
+        }))
+      // } 
+    }
+
+    this.handleChange = (e) => {
+      this.setState({rating: e.target.value});
+    }
+
+    this.toggleClick = () => {
+      this.setState(prevState => ({
+        display: !prevState.display 
+      }))
+    }
 
     return (
       <div>  
@@ -52,7 +81,12 @@ class Book extends React.Component () {
           )}
 
           {onDelete && <button onClick={onDelete}>Delete</button>} 
-          {/* <button onClick={rateBookHandler}><span></span>Rate my book</button> */}
+          <button onChange={this.handleChange} onClick={this.incrementBookRating}>+</button>
+            <span>{this.state.rating}</span>
+          <button onChange={this.handleChange} onClick={this.decrementBookRating}>-</button>
+            <span>{this.state.rating}</span>
+            {/* <button onClick={this.toggleClick}>
+            </button> */}
         </article>
       </div>
     ) 
