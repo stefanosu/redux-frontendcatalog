@@ -5,7 +5,7 @@ import { fetchCategories } from '../actions/categoriesAction'
 import {fetchBook } from '../actions/bookAction'
 import { fetchAuthor } from '../actions/authorAction'
 
-import { Book } from '../container/Book'
+import Book  from '../container/Book'
 import { Author } from '../container/Author'
 import UpdateBookForm from './UpdateBookForm'
 
@@ -39,8 +39,6 @@ const SingleBook = ({
       console.log(categories)
       return category.id === id 
     })[0];
-    
-
   }
   
   useEffect(() => {
@@ -70,6 +68,7 @@ const SingleBook = ({
   }
 
 
+
   const renderAuthor = () => {
     // if (loading.author) return <p>Loading authors...</p>
     // if (hasErrors.author) return <p>Unable to display author.</p>
@@ -88,7 +87,6 @@ const SingleBook = ({
     { updateBook 
       ? <UpdateBookForm book={newBook} onUpdate={()=> { 
         setUpdateBook(false)
-       
         
 
       }}/>

@@ -1,7 +1,7 @@
 import React, { useEffect} from 'react'; 
 import { fetchAuthor } from '../actions/authorAction'
 import { connect } from 'react-redux';
-import  { Book }  from '../container/Book';
+import   Book  from '../container/Book';
 
 const Author = ({ dispatch, loading, authors, hasErrors, }) => {
   

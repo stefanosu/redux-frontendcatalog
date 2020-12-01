@@ -20,7 +20,6 @@ class BookForm extends React.Component {
 
   state = this.initialState;
 
-  // (:title, :img, :author_id, :category_id)
 
   handleSubmit = async (e) => {
     e.preventDefault()
@@ -60,28 +59,28 @@ class BookForm extends React.Component {
       console.log(booksResponse)
   };
 
-  handleChange = (e) => {
-    console.log(e.target);
-    this.setState({[e.target.title]: e.target.value})
-    console.log(e, 'chaangeed');
-  }
+    handleChange = (e) => {
+      console.log(e.target);
+      this.setState({[e.target.title]: e.target.value})
+      console.log(e, 'chaangeed');
+    }
 
-  handleAuthorSelect = (e) => {
-    this.setState({selectionAuthorID: e.target.value})
-  }
+    handleAuthorSelect = (e) => {
+      this.setState({selectionAuthorID: e.target.value})
+    }
 
-  handleAuthorUpdate = (e) => {
-    this.setState({addAuthorName: e.target.value})
-  }
+    handleAuthorUpdate = (e) => {
+      this.setState({addAuthorName: e.target.value})
+    }
 
-  handleCategorySelection = (e) => {
-    this.setState({categoryID: e.target.value})
-  }
+    handleCategorySelection = (e) => {
+      this.setState({categoryID: e.target.value})
+    }
 
-  componentDidMount() {
-    this.props.dispatch(fetchCategories())
-    this.props.dispatch(fetchAuthors())
-  }
+    componentDidMount() {
+      this.props.dispatch(fetchCategories())
+      this.props.dispatch(fetchAuthors())
+    }
 
 
   render() { 

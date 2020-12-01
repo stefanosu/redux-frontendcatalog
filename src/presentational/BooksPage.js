@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import { fetchBooks } from '../actions/booksAction'
-
-import { Book } from '../container/Book'
+import  Book  from '../container/Book'
 import BookForm from '../container/bookForm'
 
 
@@ -28,6 +27,9 @@ const BooksPage = ({ dispatch, loading, books, hasErrors }) => {
 
     return books.map(book => <Book key={book.id} book={book} excerpt onDelete={() => onDelete(book.id)} />)
   }
+
+
+
   const showHideAddBookForm = () => {
     setIsAddingBook(!isAddingBook)
     dispatch(fetchBooks())
