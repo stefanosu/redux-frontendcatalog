@@ -2,11 +2,12 @@ import React, {useState, useEffect} from 'react';
 import { connect } from 'react-redux';
 import {fetchCategories } from '../actions/categoriesAction';
 import {fetchAuthors} from '../actions/authorsAction'
-
+import { updateSingleBook } from '../actions/bookAction'
 
 const UpdateBookForm = ({book, authors, categories, dispatch, onUpdate}) => {
   const [localBook, updateBook] = useState(book);
   const [addNewAuthorStatus, updateAddNewAuthorStatus] = useState('')
+  
 
   useEffect(() => {
     dispatch(fetchCategories())
@@ -31,20 +32,24 @@ const UpdateBookForm = ({book, authors, categories, dispatch, onUpdate}) => {
       author = await authorResponse.json()
     }
 
-    const patchResponse =  await fetch(`http://localhost:3000/book/${localBook.id}`, {
-      method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        ...localBook,
-        author_id: author !== undefined ? author.id : localBook.author_id
-      })
-    })
+    // updateSingleBook(onUpdate())
 
-    
+    // const updateStoreWith = (book) => {
+    //   if(book ) {
+    //   }
+    // }
 
-    onUpdate()
+  //   const patchResponse =  await fetch(`http://localhost:3000/book/${localBook.id}`, {
+  //     method: 'PATCH',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify({
+  //       ...localBook,
+  //       author_id: author !== undefined ? author.id : localBook.author_id
+  //     })
+  //   }) 
+      // onUpdate()
   }
 
   return (
@@ -70,10 +75,11 @@ const UpdateBookForm = ({book, authors, categories, dispatch, onUpdate}) => {
   );
 }
 
-const mapDispatchToProps = state => ({
+const mapStateToProps = state => ({
   authors: state.authors.authors,
   categories: state.categories.categories,
-
 })
 
-export default connect(mapDispatchToProps)(UpdateBookForm);
+
+
+export default connect(mapStateToProps)(UpdateBookForm);

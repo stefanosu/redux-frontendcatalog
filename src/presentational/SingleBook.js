@@ -32,8 +32,7 @@ const SingleBook = ({
     console.log(book, id)
   
 
-  }, [dispatch, match, updateBook, book])
-
+  }, [dispatch])
   const getCategory = (id) => {
     return categories.filter((category) =>  { 
       console.log(categories)
@@ -44,7 +43,7 @@ const SingleBook = ({
   useEffect(() => {
 
     console.log(book)
-    if (newBook === undefined && book !== undefined && categories !== undefined) {
+    if (newBook === undefined && book !== undefined && categories !== undefined && Object.keys(book).length > 0) {
         const {author_id, category_id} = book;
 
         const categoryName = getCategory(category_id).name;
@@ -106,8 +105,8 @@ const SingleBook = ({
 const mapStateToProps = state => ({
   book: state.book.book,
   authors: state.authors.authors,
-  loading: { books: state.books.loading, authors: state.authors.loading },
-  hasErrors: { books: state.books.hasErrors, authors: state.authors.hasErrors },
+  loading: { book: state.book.loading, authors: state.authors.loading },
+  hasErrors: { book: state.book.hasErrors, authors: state.authors.hasErrors },
   categories: state.categories.categories,
 })
 

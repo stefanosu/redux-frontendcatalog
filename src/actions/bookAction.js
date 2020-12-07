@@ -11,7 +11,6 @@ export const getBookFailure = () => ({ type: GET_BOOK_FAILURE })
 
 export function fetchBook(id) {
   return async dispatch => {
-    // debugger
     dispatch(getBook())
 
     try {
@@ -47,6 +46,35 @@ export function createBook(){
       dispatch(getBookSuccess(data)) 
     } catch(error) {
       dispatch(getBookFailure())
+    }
+  }
+}
+
+
+
+export const UPDATE_BOOK = 'UPDATE_BOOK'
+export const UPDATE_BOOK_SUCCESS = 'UPDATE_BOOK_SUCCESS'
+export const UPDATE_BOOK_FAIL = 'UPDATE_BOOK_FAILURE'
+
+export const updateBookAction = () => ({ type: UPDATE_BOOK }) 
+
+export const updateSingleBook = (localBook, author) => {
+  return async dispatch => {
+    dispatch(updateBookAction)
+
+    try {
+      const response = await fetch(`http://localhost:3000/book/${localBook.id}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...localBook,
+          author_id: author !== undefined ? author.id : localBook.author_id
+        })
+      })
+    } catch (error) {
+    
     }
   }
 }

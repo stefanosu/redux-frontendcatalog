@@ -3,7 +3,7 @@ import thunk from 'redux-thunk';
 import booksReducer from './reducers/booksReducer'
 import authorReducer from './reducers/authorReducer';
 import categoriesReducer from './reducers/categoriesReducer';
-import bookReducer from './reducers/bookReducer'
+import {updateBookReducer,  bookReducer } from './reducers/bookReducer'
 
 
 
@@ -11,7 +11,8 @@ const reducer = combineReducers({
   books: booksReducer,
   book: bookReducer, 
   authors: authorReducer,
-  categories: categoriesReducer
+  categories: categoriesReducer,
+  updateBook: updateBookReducer
 }) 
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__|| compose; 
