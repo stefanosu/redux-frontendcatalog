@@ -14,6 +14,13 @@ p {
   display: inline;
 }
 
+.rate {
+  font-family: cursive;
+  font: large;
+  margin: auto;
+  padding: 0.3rem;
+}
+
 .increase-btn {
   color: black;
   background-color: green;

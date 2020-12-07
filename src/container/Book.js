@@ -16,9 +16,15 @@ class Book extends React.Component {
     const category = book.categoryName;
 
       this.incrementBookRating = () => { 
-        this.setState(prevState => ({
-          rating: prevState.rating + 1 
-        }))
+        this.setState(prevState => {
+          if(prevState.rating < 5) {
+            return {
+              rating: prevState.rating + 1 
+            }
+          } else {
+            return null
+          } 
+        })
       }
       
       this.decrementBookRating = () => {
@@ -63,6 +69,7 @@ class Book extends React.Component {
           )}
 
           {onDelete && <button className='delete-btn' onClick={onDelete}>Delete</button>} 
+          <span className='rate'>Rate this book from 1 - 5 !</span>
           <button className='increase-btn' onChange={this.handleChange} onClick={this.incrementBookRating}>+</button>
             <p className='rating-score'>{this.state.rating}</p>
           <button className='decrease-btn' onChange={this.handleChange} onClick={this.decrementBookRating}>-</button>
